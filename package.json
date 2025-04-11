@@ -1,0 +1,19 @@
+{
+  "name": "codeshare",
+  "version": "1.0.0",
+  "description": "creating dynamic url and user sharing data ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "author": "ganesh unhale",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2"
+  }
+}
