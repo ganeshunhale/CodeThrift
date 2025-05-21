@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 import { Userfile } from "../models/file.model.js";
 
 const dynamicFile = async (req,res)=>{
-    console.log("dynamicuser",req.params);
-    console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n`)
+    
+    
     const {fileName}=req.params;
     const existedFile = await Userfile.findOne({
         fileName
