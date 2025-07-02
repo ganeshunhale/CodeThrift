@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 17 24 39; /* gray-900 */
+    --foreground: 243 244 246; /* gray-100 */
+    --card: 31 41 55; /* gray-800 */
+    --card-foreground: 243 244 246; /* gray-100 */
+    --popover: 31 41 55; /* gray-800 */
+    --popover-foreground: 243 244 246; /* gray-100 */
+    --primary: 139 92 246; /* violet-500 */
+    --primary-foreground: 243 244 246; /* gray-100 */
+    --secondary: 55 65 81; /* gray-700 */
+    --secondary-foreground: 209 213 219; /* gray-300 */
+    --muted: 55 65 81; /* gray-700 */
+    --muted-foreground: 156 163 175; /* gray-400 */
+    --accent: 55 65 81; /* gray-700 */
+    --accent-foreground: 243 244 246; /* gray-100 */
+    --destructive: 239 68 68; /* red-500 */
+    --destructive-foreground: 243 244 246; /* gray-100 */
+    --border: 75 85 99; /* gray-600 */
+    --input: 75 85 99; /* gray-600 */
+    --ring: 139 92 246; /* violet-500 */
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gray-900 text-gray-100;
+  }
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600/70 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500/70;
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Code editor specific styles */
+.code-editor {
+  font-family: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-violet-500/30;
+}
+
+::-moz-selection {
+  @apply bg-violet-500/30;
+}
+
+/* Focus ring improvements */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:ring-offset-2 focus:ring-offset-gray-900;
+}
+
+/* Backdrop blur fallback */
+@supports not (backdrop-filter: blur(12px)) {
+  .backdrop-blur-xl {
+    background-color: rgba(31, 41, 55, 0.8);
+  }
+  .backdrop-blur-sm {
+    background-color: rgba(55, 65, 81, 0.8);
+  }
+}
