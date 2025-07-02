@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Code, Users, Zap, Sparkles, Globe } from "lucide-react"
+import Image from "next/image"
 
 export default function HomePage() {
   const [filename, setFilename] = useState("")
@@ -95,9 +96,9 @@ export default function HomePage() {
                 <p className="text-sm text-gray-400 font-medium">Quick Start Templates</p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                   {[
-                    { name: "main.js", icon: <img src="/images/js-brands.svg" alt="JS Icon"/>, desc: "JavaScript" },
-                    { name: "index.html", icon: <img src="/images/html5-brands.svg" alt="HTML Icon"/>,desc: "HTML" },
-                    { name: "app.py", icon:  <img src="/images/python-brands.svg" alt="Python Icon"/>, desc: "Python" },
+                    { name: "main.js", icon: <Image src="/images/js-brands.svg" alt="JS Icon"/>, desc: "JavaScript" },
+                    { name: "index.html", icon: <Image src="/images/html5-brands.svg" alt="HTML Icon"/>,desc: "HTML" },
+                    { name: "app.py", icon:  <Image src="/images/python-brands.svg" alt="Python Icon"/>, desc: "Python" },
                     { name: "style.css", icon: "🎨", desc: "CSS" },
                     { name: "README.md", icon: "📝", desc: "Markdown" },
                     { name: "config.json", icon: "⚙️", desc: "JSON" },

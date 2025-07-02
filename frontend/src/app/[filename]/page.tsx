@@ -11,19 +11,18 @@ import { Copy, Users, Home, Download, Maximize2, Minimize2 } from "lucide-react"
 import Link from "next/link"
 import { ConnectionBanner } from "@/components/connection-banner"
 import axios from "axios"
+import Image from "next/image"
 interface WSMessage {
   code?: string;      
-  users?: Number;
-  clientId?:any   
+  users?: number;
 }
 
 export default function EditorPage() {
   const filename = decodeURIComponent(useParams().filename as string)
   const [code, setCode] = useState("")
-  const [users, setUsers] = useState<Number>(0)
+  const [users, setUsers] = useState<number>(0)
   const [copied, setCopied] = useState(false)
   const [isFullscreen, setIsFullscreen] = useState(false)
-  const [offlineChanges, setOfflineChanges] = useState<string>("")
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const lastReceivedCodeRef  = useRef<string|null>(null)
   const [connectionStatus, setConnectionStatus] = useState<"connecting" | "connected" | "disconnected" | "error">("connecting")
@@ -125,13 +124,13 @@ if (!lastJsonMessage) return
 
   const getLanguageFromFilename = (filename: string) => {
     const ext = filename.split(".").pop()?.toLowerCase()
-    const langMap: Record<string, { name: string; color: string; icon: any }> = {
-      js: { name: "JavaScript", color: "bg-yellow-500", icon: <img src="/images/js-brands.svg" alt="JS Icon"/> },
+    const langMap: Record<string, { name: string; color: string; icon: React.ReactNode }> = {
+      js: { name: "JavaScript", color: "bg-yellow-500", icon: <Image src="/images/js-brands.svg" alt="JS Icon"/> },
       jsx: { name: "React", color: "bg-blue-500", icon: "⚛️" },
       ts: { name: "TypeScript", color: "bg-blue-600", icon: "🔷" },
       tsx: { name: "React TS", color: "bg-blue-600", icon: "⚛️" },
-      py: { name: "Python", color: "bg-green-500", icon: <img src="/images/python-brands.svg" alt="Python Icon"/> },
-      html: { name: "HTML", color: "bg-orange-500", icon: <img src="/images/html5-brands.svg" alt="HTML Icon"/> },
+      py: { name: "Python", color: "bg-green-500", icon: <Image src="/images/python-brands.svg" alt="Python Icon"/> },
+      html: { name: "HTML", color: "bg-orange-500", icon: <Image src="/images/html5-brands.svg" alt="HTML Icon"/> },
       css: { name: "CSS", color: "bg-purple-500", icon: "🎨" },
       json: { name: "JSON", color: "bg-gray-500", icon: "⚙️" },
       md: { name: "Markdown", color: "bg-gray-600", icon: "📝" },
